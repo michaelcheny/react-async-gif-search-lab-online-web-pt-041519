@@ -10,7 +10,6 @@ export class GifSearch extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // pass this shit back to parent
     this.props.submitCallback(this.state.input);
     this.setState({
       input: ""
