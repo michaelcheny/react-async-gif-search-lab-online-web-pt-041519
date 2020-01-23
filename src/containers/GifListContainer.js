@@ -11,7 +11,7 @@ export class GifListContainer extends Component {
   }
 
   async componentDidMount() {
-    // fetching in here
+    this.submitSearch();
   }
 
   submitSearch = async inputQuery => {
@@ -19,16 +19,17 @@ export class GifListContainer extends Component {
       `https://api.giphy.com/v1/gifs/search?q=${inputQuery}&api_key=dc6zaTOxFJmzC&rating=g`
     );
     const { data } = await res.json();
-    console.log(data);
-    data.map(gif => {
-      // console.log(gif.url);
-      this.setState(
-        {
-          gif: gif.url
-        },
-        console.log(this.state)
-      );
-    });
+    // console.log(data);
+    // data.map(gif => {
+    // console.log(gif.url);
+    this.setState(
+      {
+        gifs: data
+        // gifs: gif.url
+      }
+      // console.log(this.state)
+    );
+    // });
   };
 
   // does the data fetching and then renders its corresponding sub components
